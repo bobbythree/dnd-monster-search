@@ -1,0 +1,45 @@
+# LazVim
+.lazydocker.yml
+.local/share/lunarvim/
+.local/state/nvim/
+
+# Node.js
+node_modules/
+package-lock.json
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Express.js
+.env # If you are using environment variables, do NOT commit this!
+dist/ # If you are using a build step and outputting to dist
+build/ # Or build folder
+
+# Linux Mint
+.directory
+.DS_Store # MacOS files, if you happen to be working with MacOS files in your project directory.
+*.swp # Vim swap files
+*.swo
+*.swn
+*.un~
+*.bak
+*.log
+*.tmp
+*.pyc # Python compiled files
+__pycache__/
+
+# Logs and temp files
+*.log
+tmp/
+temp/
+*.tmp
+*.swp
+
+# IDE Specific files
+.idea/
+.vscode/
+
+# Other
+.DS_Store # Commonly found on macOS, but can be created on Linux
+Thumbs.db
