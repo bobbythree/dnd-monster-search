@@ -1,16 +1,19 @@
 import './style.css'
 
+//get html elememts
 const form = document.getElementById('form');
 const input = document.getElementById('input');
 const output = document.getElementById('output');
 const monsterPic = document.getElementById('monster-pic');
 
+//form event handler
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
   await fetchMonster(hyphenateStr(input.value));
   input.value = '';
 })
 
+//API call function
 async function fetchMonster(monsterName) {
   const url = `https://www.dnd5eapi.co/api/2014/monsters/${monsterName}`; 
   try {
@@ -44,7 +47,7 @@ async function fetchMonster(monsterName) {
       output.appendChild(li);
     }
     } catch (err) {
-      console.error(err)
+      console.error(err);
     }  
 }
 
