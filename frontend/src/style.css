@@ -15,16 +15,13 @@ body {
 }
 
 #container {
+  padding-top: 2rem;
   padding-left: 5rem;
 }
 
 #form {
   padding-top: 5rem;
   padding-left: 5rem;
-}
-
-#monster-pic {
-  padding-top: 2rem;
 }
 
 #output {

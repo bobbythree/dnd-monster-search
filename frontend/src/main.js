@@ -5,6 +5,7 @@ const form = document.getElementById('form');
 const input = document.getElementById('input');
 const output = document.getElementById('output');
 const monsterPic = document.getElementById('monster-pic');
+const picDiv = document.getElementById('pic-div');
 
 //form event handler
 form.addEventListener('submit', async (e) => {
@@ -37,9 +38,24 @@ async function fetchMonster(monsterName) {
     output.innerHTML = '';
 
     //set monster image
-    monsterPic.src = `https://www.dnd5eapi.co/api/2014/images/monsters/${monsterName}.png`;
-    monsterPic.alt = `Picture of ${monsterName}`;
-    monsterPic.width = '500';
+    const imgURL = `https://www.dnd5eapi.co/api/2014/images/monsters/${monsterName}.png`
+    const imgResponse = await fetch(imgURL);
+    if (imgResponse.ok) {
+      monsterPic.src = imgURL;
+      monsterPic.alt = `Picture of ${monsterName}`;
+      monsterPic.width = '500';
+      picDiv.innerHTML = '';
+      picDiv.appendChild(monsterPic);
+    } else {
+      monsterPic.src = '';
+      monsterPic.alt = '';
+      monsterPic.width = 0;
+      picDiv.innerHTML = '';
+      const notAvailable = document.createElement('p');
+      notAvailable.style.color = 'red';
+      notAvailable.innerHTML = 'Picture not available'
+      picDiv.appendChild(notAvailable);
+    }
 
     for(const [key, value] of Object.entries(monsterData)) {
       const li = document.createElement('li');
@@ -56,9 +72,4 @@ async function fetchMonster(monsterName) {
 function hyphenateStr(str) {
   return str.trim().toLowerCase().replace(/\s+/g, '-');  
 }
-
-
-const test = document.createElement('p');
-test.innerHTML = 'this is a test';
-container.prepend(test);
 
