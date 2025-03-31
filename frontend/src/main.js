@@ -13,7 +13,7 @@ form.addEventListener('submit', async (e) => {
   input.value = '';
 })
 
-//API call function
+//call API for all monsters
 async function fetchMonster(monsterName) {
   const url = `https://www.dnd5eapi.co/api/2014/monsters/${monsterName}`; 
   try {
@@ -56,3 +56,9 @@ async function fetchMonster(monsterName) {
 function hyphenateStr(str) {
   return str.trim().toLowerCase().replace(/\s+/g, '-');  
 }
+
+
+const test = document.createElement('p');
+test.innerHTML = 'this is a test';
+container.prepend(test);
+
