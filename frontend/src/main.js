@@ -14,7 +14,7 @@ form.addEventListener('submit', async (e) => {
   input.value = '';
 })
 
-//call API for all monsters
+//call API for all monster data
 async function fetchMonster(monsterName) {
   const url = `https://www.dnd5eapi.co/api/2014/monsters/${monsterName}`; 
   try {
