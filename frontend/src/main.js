@@ -37,9 +37,10 @@ async function fetchMonster(monsterName) {
     //clear prev data
     output.innerHTML = '';
 
-    //set monster image
+    // call API for image
     const imgURL = `https://www.dnd5eapi.co/api/2014/images/monsters/${monsterName}.png`
     const imgResponse = await fetch(imgURL);
+    // check if image exists
     if (imgResponse.ok) {
       monsterPic.src = imgURL;
       monsterPic.alt = `Picture of ${monsterName}`;
@@ -56,7 +57,8 @@ async function fetchMonster(monsterName) {
       notAvailable.innerHTML = 'Picture not available'
       picDiv.appendChild(notAvailable);
     }
-
+    
+    // display monster data 
     for(const [key, value] of Object.entries(monsterData)) {
       const li = document.createElement('li');
       li.innerHTML = `${key}: ${value}`;
