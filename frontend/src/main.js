@@ -28,6 +28,7 @@ async function fetchMonster(monsterName) {
     }); 
 
     if (!response.ok) {
+      alert('Monster not found, try again.')
       throw new Error('HTTP error!', response.status);
     }
 
