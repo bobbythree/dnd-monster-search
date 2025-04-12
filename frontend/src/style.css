@@ -22,6 +22,16 @@ body {
 #form {
   padding-top: 5rem;
   padding-left: 5rem;
+  width: 500px;
+}
+
+#input {
+  margin-top: 1rem;
+}
+
+#submit {
+  padding: 0px 0.5rem;
+  background: skyblue;
 }
 
 #output {

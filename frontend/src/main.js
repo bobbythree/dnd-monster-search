@@ -32,6 +32,8 @@ async function fetchMonster(monsterName) {
       name: results.name,
       type: results.type,
       alignment: results.alignment,
+      armor_class: results["armor_class"][0].value, 
+      HP: results.hit_points
     } 
 
     //clear prev data
