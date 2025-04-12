@@ -10,8 +10,12 @@ const picDiv = document.getElementById('pic-div');
 //form event handler
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
-  await fetchMonster(hyphenateStr(input.value));
-  input.value = '';
+  if (input.value) {
+    await fetchMonster(hyphenateStr(input.value));
+    input.value = '';
+  } else {
+    alert('enter a monster name')
+  } 
 })
 
 //call API for all monster data
