@@ -1,4 +1,5 @@
 import './style.css'
+import defaultImg from '../public/img-not-avail.png'
 
 //get html elememts
 const form = document.getElementById('form');
@@ -51,19 +52,14 @@ async function fetchMonster(monsterName) {
     if (imgResponse.ok) {
       monsterPic.src = imgURL;
       monsterPic.alt = `Picture of ${monsterName}`;
-      monsterPic.width = '500';
-      picDiv.innerHTML = '';
-      picDiv.appendChild(monsterPic);
     } else {
-      monsterPic.src = '';
-      monsterPic.alt = '';
-      monsterPic.width = 0;
-      picDiv.innerHTML = '';
-      const notAvailable = document.createElement('p');
-      notAvailable.style.color = 'red';
-      notAvailable.innerHTML = 'Picture not available'
-      picDiv.appendChild(notAvailable);
+      monsterPic.src = defaultImg;
+      monsterPic.alt = 'image not available';
     }
+    
+    monsterPic.width = '500';
+    picDiv.innerHTML = '';
+    picDiv.appendChild(monsterPic);
     
     // display monster data 
     for(const [key, value] of Object.entries(monsterData)) {
