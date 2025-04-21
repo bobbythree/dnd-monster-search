@@ -15,14 +15,15 @@ body {
 }
 
 #container {
-  padding-top: 2rem;
-  padding-left: 5rem;
+  padding: 2rem 5rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 #form {
-  padding-top: 5rem;
-  padding-left: 5rem;
-  width: 500px;
+  text-align: center;
+  padding: 5rem;
 }
 
 #input-label {
@@ -44,6 +45,6 @@ body {
 }
 
 #output {
-  padding-top: 2rem;
   list-style-type: none;
+  font-size: 24px;
 }
