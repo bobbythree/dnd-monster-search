@@ -1,5 +1,5 @@
 import './style.css'
-import defaultImg from '../public/img-not-avail.png'
+import defaultImg from '../src/assets/img-not-avail.png'
 
 //get html elememts
 const form = document.getElementById('form');
