@@ -16,17 +16,17 @@ form.addEventListener('submit', async (e) => {
     input.value = '';
   } else {
     alert('enter a monster name')
-  } 
+  }
 })
 
 //call API for all monster data
 async function fetchMonster(monsterName) {
-  const url = `https://www.dnd5eapi.co/api/2014/monsters/${monsterName}`; 
+  const url = `https://www.dnd5eapi.co/api/2014/monsters/${monsterName}`;
   try {
-     const response = await fetch(url, {
+    const response = await fetch(url, {
       method: 'GET',
       accept: 'application/json'
-    }); 
+    });
 
     if (!response.ok) {
       alert('Monster not found, try again.')
@@ -38,9 +38,9 @@ async function fetchMonster(monsterName) {
       name: results.name,
       type: results.type,
       alignment: results.alignment,
-      armor_class: results["armor_class"][0].value, 
+      armor_class: results["armor_class"][0].value,
       HP: results.hit_points
-    } 
+    }
 
     //clear prev data
     output.innerHTML = '';
@@ -56,25 +56,25 @@ async function fetchMonster(monsterName) {
       monsterPic.src = defaultImg;
       monsterPic.alt = 'image not available';
     }
-    
-    monsterPic.width = '500';
+
+    monsterPic.width = '350';
     picDiv.innerHTML = '';
     picDiv.appendChild(monsterPic);
-    
+
     // display monster data 
-    for(const [key, value] of Object.entries(monsterData)) {
+    for (const [key, value] of Object.entries(monsterData)) {
       const li = document.createElement('li');
       li.innerHTML = `${key}: ${value}`;
       output.appendChild(li);
     }
-    } catch (err) {
-      console.error(err);
-    }  
+  } catch (err) {
+    console.error(err);
+  }
 }
 
 
 //utils
 function hyphenateStr(str) {
-  return str.trim().toLowerCase().replace(/\s+/g, '-');  
+  return str.trim().toLowerCase().replace(/\s+/g, '-');
 }
 

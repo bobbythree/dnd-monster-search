@@ -12,14 +12,7 @@ body {
   font-size: 48px;
   color: goldenrod;
   text-align: center;
-  padding-top: 2rem;
-}
-
-#container {
-  padding: 2rem 10rem;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  padding-top: 5rem;
 }
 
 #form {
@@ -43,6 +36,14 @@ body {
   height: 30px;
   vertical-align: bottom;
   border-radius: 3px;
+}
+
+#container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: center;
+  margin-top: 5rem;
+  padding: 0 12rem;
 }
 
 #output {
