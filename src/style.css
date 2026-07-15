@@ -28,34 +28,36 @@ body {
   height: 30px;
   font-size: 16px;
   vertical-align: bottom;
+  background: black;
+  color: lightgray;
 }
 
 #submit {
   padding: 0px 0.5rem;
-  background: skyblue;
+  background: darkgreen;
   height: 30px;
   vertical-align: bottom;
   border-radius: 3px;
+  border: none;
+  color: lightgray;
+    &:hover {
+      opacity: 0.8;
+      transition: 0.3s;
+    }
 }
 
 #container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  place-items: center;
-  margin-top: 5rem;
-  padding: 0 12rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+  padding-top: 5rem;
 }
 
 #output {
   color: skyblue;
   list-style-type: none;
   font-size: 24px;
-}
-
-@media screen and (max-width: 1300px) {
-  #container {
-    padding: 0 5rem;
-  }
 }
 
 @media screen and (max-width: 1000px) {
@@ -72,6 +74,7 @@ body {
 @media screen and (max-width: 1000px) {
 
   #container {
+    flex-direction: column;
     margin-top: 0;
     padding-bottom: 3rem;
   }
