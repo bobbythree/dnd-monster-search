@@ -6,44 +6,52 @@
 
 body {
   background-color: #181818;
+  font-family: system-ui, -apple-system, sans-serif;
 }
 
 #heading {
   font-size: 48px;
   color: goldenrod;
   text-align: center;
-  padding-top: 5rem;
+  padding: 5rem 1rem 0 1rem;
 }
 
 #form {
   color: lightgray;
   text-align: center;
-  padding: 5rem;
-  padding-top: 0.5rem;
+  padding: 5rem 1rem 0.5rem 1rem;
 }
 
 #input {
   margin-top: 1rem;
   padding-left: 1rem;
-  height: 30px;
+  height: 35px;
   font-size: 16px;
   vertical-align: bottom;
-  background: black;
+  background: #0d0d0d;
   color: lightgray;
+  border: 1px solid #333;
+  border-radius: 3px 0 0 3px;
+}
+
+#input:focus {
+  outline: 1px solid goldenrod;
 }
 
 #submit {
-  padding: 0px 0.5rem;
+  padding: 0 1rem;
   background: darkgreen;
-  height: 30px;
+  height: 35px;
   vertical-align: bottom;
-  border-radius: 3px;
+  border-radius: 0 3px 3px 0;
   border: none;
   color: lightgray;
-    &:hover {
-      opacity: 0.8;
-      transition: 0.3s;
-    }
+  cursor: pointer
+  transition: opacity 0.3s ease;
+}
+
+#submit:hover {
+  opacity: 0.8;
 }
 
 #container {
@@ -55,28 +63,26 @@ body {
 }
 
 #output {
-  color: skyblue;
+  color: #E8F0E8;
   list-style-type: none;
   font-size: 24px;
 }
 
-@media screen and (max-width: 1000px) {
-  #container {
-    grid-template-columns: 1fr;
-  }
-
-  #output {
-    margin-top: 3rem;
-    text-align: start;
-  }
+#monster-pic {
+  border: 2px solid black;
 }
 
 @media screen and (max-width: 1000px) {
-
   #container {
     flex-direction: column;
     margin-top: 0;
     padding-bottom: 3rem;
+    gap: 2rem;
+  }
+
+  #output {
+    margin-top: 1rem;
+    text-align: center;
   }
 }
 
@@ -86,11 +92,8 @@ body {
   }
 
   #input {
-    width: 200px;
-  }
-
-  #container {
-    padding: 0;
+    width: 180px;
+    font-size: 14px;
   }
 
   #pic-div {
