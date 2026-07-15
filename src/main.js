@@ -7,6 +7,7 @@ const input = document.getElementById('input');
 const output = document.getElementById('output');
 const monsterPic = document.getElementById('monster-pic');
 const picDiv = document.getElementById('pic-div');
+const errorMessage = document.getElementById('error-message');
 
 //form event handler
 form.addEventListener('submit', async (e) => {
@@ -19,8 +20,14 @@ form.addEventListener('submit', async (e) => {
   }
 })
 
+input.addEventListener('input', () => {
+  errorMessage.textContent = '';
+});
+
 //call API for all monster data
 async function fetchMonster(monsterName) {
+  errorMessage.textContent = '';
+
   const url = `https://www.dnd5eapi.co/api/2014/monsters/${monsterName}`;
   try {
     const response = await fetch(url, {
@@ -29,8 +36,11 @@ async function fetchMonster(monsterName) {
     });
 
     if (!response.ok) {
-      alert('Monster not found, try again.')
-      throw new Error('HTTP error!', response.status);
+      errorMessage.textContent = 'Monster not found. Please try another name.';
+      output.innerHTML = '';
+      picDiv.innerHTML = '';
+
+      return;
     }
 
     const results = await response.json();
@@ -69,6 +79,8 @@ async function fetchMonster(monsterName) {
     }
   } catch (err) {
     console.error(err);
+    errorMessage.textContent =
+      'Something went wrong. Please check your connection and try again.';
   }
 }
 

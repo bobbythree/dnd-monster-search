@@ -72,6 +72,14 @@ body {
   border: 2px solid black;
 }
 
+#error-message {
+  color: #d32f2f;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  min-height: 1.2rem;
+  text-align: center;
+}
+
 @media screen and (max-width: 1000px) {
   #container {
     flex-direction: column;
